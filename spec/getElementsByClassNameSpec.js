@@ -1,12 +1,33 @@
 var htmlStrings = [
-  '<p class="targetClassName"></p>',
-  '<p class="otherClassName targetClassName"></p>',
-  '<p><p class="targetClassName"></p></p>',
-  '<p><p class="targetClassName"><p class="targetClassName"></p></p></p>',
-  '<p><p></p><p><p class="targetClassName"></p></p></p>',
-  '<p><p class="targetClassName"></p><p class="targetClassName"></p></p>',
-  '<p><div class="somediv"><div class="innerdiv"><span class="targetClassName">yay</span></div></div></p>'
+  '<p class="targetClassName"></p>',                                      // 0
+  '<p class="otherClassName targetClassName"></p>',                       // 1
+  '<p><p class="targetClassName"></p></p>',                               // 2
+  '<p><p class="targetClassName"><p class="targetClassName"></p></p></p>',// 3
+  '<p><p></p><p><p class="targetClassName"></p></p></p>',                 // 4
+  '<p><p class="targetClassName"></p><p class="targetClassName"></p></p>',// 5
+  '<p><div class="somediv"><div class="innerdiv"><span class="targetClassName">yay</span></div></div></p>'                      // 6
 ];
+
+/*  html strings
+0
+1
+2
+  p
+3
+  p
+    p
+4
+  p
+  p
+    p
+5
+  p
+  p
+6
+  div
+    div
+      span 'yay'
+ */
 
 describe('getElementsByClassName', function(){
 

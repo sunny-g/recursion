@@ -46,15 +46,15 @@ var stringifyJSON = function(obj) {
   var str2 = "{"key1":"value1"}"
    */
 
-  function createString(str, size) {
+  function createString(str, obj2Stringify) {
     var count = 0;
-    _.each(obj, function(value, key) {
-      if (typeof value === 'object') {
-        str += '"' + key + '":'
-        createString(str, _.size(value));
+    _.each(obj2Stringify, function(value, key) {
+      if (Object.prototype.toString.call(value) === '[object Object]') {
+        str += '"' + key + '":';
+        createString(str, value);
       } else {
         str += '"' + key + '":"' + value.toString() + '"';
-        if (!(count === size - 1)) {
+        if (!(count === _.size(obj2Stringify) - 1)) {
           count++;
           str += ',';
         } else {
@@ -66,7 +66,7 @@ var stringifyJSON = function(obj) {
     return str;
   }
 
-  return createString('{', _.size(obj))
+  return createString('{', obj)
 
 
 };
